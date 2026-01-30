@@ -9,5 +9,5 @@ export function routeHandler(request, response) {
     return route.controller(request, response);
   }
 
-  return res.writeHead(404).end(`Rota não encontrada!`);
+  return response.writeHead(404).end(`Rota não encontrada!`);
 }
