@@ -13,4 +13,13 @@ export const routes = [
       return response.end(JSON.stringify(request.body));
     },
   },
+
+  {
+    method: "DELETE",
+    path: "/products/:id",
+    controller: (request, response) => {
+      return response.end("Removido !");
+    },
+  },
+
 ];
