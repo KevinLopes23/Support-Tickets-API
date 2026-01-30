@@ -15,7 +15,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   
-  return res.writeHead(404).end(`Rota ${url} não encontrada`);
+  return res.writeHead(404).end(`Rota ${url} não encontrada!`);
 });
 
 server.listen(3333);
