@@ -1,4 +1,4 @@
-import {parseRoutePath} from "./utils/parseRoutePath.js";
+import { parseRoutePath } from "./utils/parseRoutePath.js";
 
 export const routes = [
   {
@@ -23,8 +23,7 @@ export const routes = [
       return response.end("Produto removido com o ID: " + request.params.id);
     },
   },
-
 ].map((route) => ({
-    ...route,
-    path: parseRoutePath(route.path),
+  ...route,
+  path: parseRoutePath(route.path),
 }));
