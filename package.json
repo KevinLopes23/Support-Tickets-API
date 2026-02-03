@@ -1,6 +1,7 @@
 {
-  "name": "rocketseat",
+  "name": "support-tickets",
   "version": "1.0.0",
+  "description": "API de gerenciamento de tickets de suporte",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
@@ -8,6 +9,5 @@
   },
   "keywords": [],
   "author": "Kevin Lopes",
-  "license": "ISC",
-  "description": "Meu primeiro projeto Node.js"
+  "license": "ISC"
 }
