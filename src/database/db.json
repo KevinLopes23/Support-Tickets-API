@@ -1,1 +1,13 @@
-{}
+{
+  "tickets": [
+    {
+      "id": "d75caf71-360e-428e-b5db-167f6006620c",
+      "equipment": "Computador",
+      "description": "Computador nao liga",
+      "user_name": "Kevin Lopes",
+      "status": "open",
+      "created_at": "2026-02-11T13:32:19.775Z",
+      "updated_at": "2026-02-11T13:32:19.775Z"
+    }
+  ]
+}
