@@ -37,11 +37,11 @@ O diferencial deste projeto é a sua implementação **sem frameworks** (como Ex
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/KevinLopes23/Rocketseat.git
+   git clone https://github.com/KevinLopes23/Support-Tickets-API.git
    ```
 2. Acesse a pasta do projeto:
    ```bash
-   cd Rocketseat
+   cd Support-Tickets-API
    ```
 3. Instale as dependências (caso haja alguma futura):
    ```bash
