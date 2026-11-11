@@ -1,75 +1,54 @@
+<div align="center">
+
 # 🎫 Support Tickets API
 
-> Uma API RESTful simples e eficiente para gerenciamento de tickets de suporte, construída com Node.js puro.
+**API REST para gerenciar chamados de suporte, feita só com os módulos nativos do Node.js.**
 
-![Badge License](https://img.shields.io/badge/license-ISC-brightgreen)
-![Badge Node](https://img.shields.io/badge/node.js-v18%2B-blue)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-## 📖 Sobre o Projeto
+</div>
 
-Este projeto é uma API backend desenvolvida para facilitar o controle de chamados de suporte. Ele permite a criação, listagem, atualização e remoção de tickets, além de controlar o status de cada solicitação.
+## 💡 Sobre
 
-O diferencial deste projeto é a sua implementação **sem frameworks** (como Express ou Fastify), utilizando apenas os módulos nativos do **Node.js**, o que demonstra um entendimento profundo do funcionamento interno da plataforma.
+API para abrir, listar, editar e encerrar tickets de suporte. Foi escrita sem frameworks: o servidor usa `node:http`, o roteamento é feito com expressões regulares e os dados ficam num arquivo JSON (`src/database/db.json`).
 
-## 🚀 Funcionalidades
+## ✨ Funcionalidades
 
-- **Criação de Tickets**: Registre novos chamados com equipamento, descrição e nome do usuário.
-- **Listagem de Tickets**: Visualize todos os tickets ou filtre pelo status (ex: `open`, `closed`).
-- **Atualização de Detalhes**: Edite as informações de equipamento e descrição de um ticket existente.
-- **Gerenciamento de Status**: Atualize o status do ticket (ex: marcar como resolvido) e adicione uma solução.
-- **Remoção**: Exclua tickets que não são mais necessários.
+- Abrir ticket com equipamento, descrição e nome do usuário (status inicial `open`)
+- Listar tickets, com filtro opcional por status (`?status=open`)
+- Editar equipamento e descrição de um ticket
+- Encerrar ticket (status `closed`) registrando a solução
+- Remover ticket
+- Persistência em arquivo JSON, sem banco de dados
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
-- **[Node.js](https://nodejs.org/)**: Ambiente de execução JavaScript.
-- **Módulos Nativos**:
-  - `http`: Para criação do servidor e manipulação de requisições.
-  - `crypto`: Para geração de UUIDs únicos.
-  - `fs` (implícito na database): Para persistência de dados.
+- Node.js (`node:http`, `node:fs/promises`, `node:crypto`)
+- JavaScript (ES Modules)
 
-## 📦 Como Rodar o Projeto
+## 📌 Endpoints
 
-### Pré-requisitos
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| `POST` | `/tickets` | Cria um ticket (`equipment`, `description`, `user_name`) |
+| `GET` | `/tickets` | Lista tickets (filtro opcional `?status=`) |
+| `PUT` | `/tickets/:id` | Atualiza `equipment` e `description` |
+| `PATCH` | `/tickets/:id` | Encerra o ticket e registra a `solution` |
+| `DELETE` | `/tickets/:id` | Remove o ticket |
 
-- [Node.js](https://nodejs.org/en/download/) instalado em sua máquina.
+## 🚀 Como rodar
 
-### Instalação
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/KevinLopes23/Support-Tickets-API.git
-   ```
-2. Acesse a pasta do projeto:
-   ```bash
-   cd Support-Tickets-API
-   ```
-3. Instale as dependências (caso haja alguma futura):
-   ```bash
-   npm install
-   ```
-
-### Executando
-
-Para iniciar o servidor em modo de desenvolvimento (com watch mode):
+Requer Node.js 18 ou superior (usa `node --watch`). Não há dependências para instalar.
 
 ```bash
+git clone https://github.com/KevinLopes23/Support-Tickets-API.git
+cd Support-Tickets-API
 npm run dev
 ```
 
-O servidor iniciará na porta `3333`.
+A API sobe em `http://localhost:3333`.
 
-## 📍 Rotas da API
+## 👤 Autor
 
-| Método   | Rota                   | Descrição                          | Corpo da Requisição (JSON)                                               |
-| -------- | ---------------------- | ---------------------------------- | ------------------------------------------------------------------------ |
-| `POST`   | `/tickets`             | Cria um novo ticket                | `{ "equipment": "PC", "description": "Não liga", "user_name": "Kevin" }` |
-| `GET`    | `/tickets`             | Lista todos os tickets             | N/A                                                                      |
-| `GET`    | `/tickets?status=open` | Lista tickets filtrados por status | N/A                                                                      |
-| `PUT`    | `/tickets/:id`         | Atualiza dados do ticket           | `{ "equipment": "Nova info", "description": "Nova descrição" }`          |
-| `PATCH`  | `/tickets/:id`         | Atualiza status p/ `closed`        | `{ "solution": "Troca de fonte" }`                                       |
-| `DELETE` | `/tickets/:id`         | Remove um ticket                   | N/A                                                                      |
-
-
----
-
-Feito com 💜 por [Kevin Lopes](https://github.com/KevinLopes23)
+Feito por [Kevin Lopes](https://github.com/KevinLopes23)
